@@ -54,13 +54,12 @@ const AboutSection = () => {
         >
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/0 rounded-3xl transform -rotate-6"></div>
-            <div className="w-full aspect-square bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-3xl relative z-10 flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-600 to-slate-700 flex items-center justify-center shadow-lg shadow-blue-900/40">
-                  <Music className="w-16 h-16 text-blue-100" />
-                </div>
-                <p className="text-zinc-400 text-lg">Три дня дождя</p>
-              </div>
+            <div className="w-full aspect-square bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-3xl relative z-10 overflow-hidden">
+              <img
+                src="https://cdn.poehali.dev/projects/cba59d06-69fb-42f9-89e0-926360f01706/bucket/b6110a92-5828-4351-95d5-eaca3423122f.png"
+                alt="Три дня дождя"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
           </div>
           <div>
