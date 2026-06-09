@@ -30,7 +30,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="/" className="text-3xl font-bold tracking-tighter text-white">
-          SoundForge
+          Три дня дождя
         </a>
         <div className="md:hidden">
           <Button
@@ -51,23 +51,23 @@ const Header = () => {
             <li>
               <button
                 onClick={() => scrollToSection("licenses")}
-                className="text-white hover:text-purple-400 transition-colors"
+                className="text-white hover:text-blue-400 transition-colors"
               >
-                Лицензии
+                Музыка
               </button>
             </li>
             <li>
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-white hover:text-purple-400 transition-colors"
+                className="text-white hover:text-blue-400 transition-colors"
               >
-                Обо мне
+                Об артисте
               </button>
             </li>
             <li>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-white hover:text-purple-400 transition-colors"
+                className="text-white hover:text-blue-400 transition-colors"
               >
                 Контакты
               </button>
@@ -80,7 +80,7 @@ const Header = () => {
           asChild
         >
           <a href="#" target="_blank" rel="noopener noreferrer">
-            BeatStars
+            Слушать
           </a>
         </Button>
       </div>

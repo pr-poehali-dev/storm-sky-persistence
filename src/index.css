@@ -92,9 +92,24 @@
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 0px white;
+    box-shadow: 0 0 0px #93c5fd;
   }
   to {
-    box-shadow: 0 0 20px white;
+    box-shadow: 0 0 24px #3b82f6;
+  }
+}
+
+/* Rain drop effect */
+@keyframes rain-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
   }
 }
