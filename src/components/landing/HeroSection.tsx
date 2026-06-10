@@ -26,10 +26,14 @@ const HeroSection = () => {
                 Три дня дождя
               </span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-zinc-400 max-w-3xl mx-auto">
-              Музыка, которая остаётся с тобой. Атмосферные треки на стыке электронного и живого звука —
-              для тех, кто чувствует больше, чем слышит.
-            </p>
+            <div className="mb-8 max-w-3xl mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
+              <p className="text-2xl md:text-3xl font-light text-white/90 mb-3 tracking-wide">
+                Музыка, которая спасёт тебя.
+              </p>
+              <p className="text-base md:text-lg font-light text-zinc-400 tracking-wide">
+                «Вайбовые треки на стыке электронного и живого звука — для тех, кто чувствует больше, чем слышит.»
+              </p>
+            </div>
             <div className="relative inline-block">
               <Button
                 size="lg"
