@@ -6,7 +6,7 @@ const HeroSection = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const stats = [
-    { icon: <Play className="w-6 h-6" />, label: "Треков выпущено", value: "30+" },
+    { icon: <Play className="w-6 h-6" />, label: "Треков выпущено", value: "70+" },
     { icon: <Disc3 className="w-6 h-6" />, label: "Прослушиваний", value: "500К+" },
     { icon: <Music2 className="w-6 h-6" />, label: "Лет в музыке", value: "5+" },
     { icon: <AudioWaveform className="w-6 h-6" />, label: "Коллабораций", value: "20+" },
