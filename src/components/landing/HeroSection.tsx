@@ -23,7 +23,7 @@ const HeroSection = () => {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight relative">
+            <h1 className="text-6xl md:text-9xl mb-6 tracking-wide relative" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-zinc-500">
                 Три дня дождя
               </span>

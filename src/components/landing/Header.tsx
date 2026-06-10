@@ -30,7 +30,7 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" className="text-3xl font-bold tracking-tighter text-white">
+        <a href="/" className="text-3xl tracking-wide text-white" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}>
           Три дня дождя
         </a>
         <div className="md:hidden">
