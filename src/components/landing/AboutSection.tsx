@@ -77,13 +77,20 @@ const AboutSection = () => {
             <div className="mb-8">
               <p className="text-sm text-zinc-500 uppercase tracking-widest mb-3">Популярные альбомы</p>
               <div className="flex flex-wrap gap-2">
-                {["Висхолдинг", "Байполар", "Melancholia"].map((album) => (
-                  <span
-                    key={album}
-                    className="px-4 py-2 rounded-full bg-zinc-900 border border-white/10 text-zinc-200 text-sm font-medium hover:border-blue-400/40 hover:text-blue-200 transition-colors cursor-default"
+                {[
+                  { name: "Висхолдинг", url: "https://music.yandex.ru/album/36336671" },
+                  { name: "Байполар", url: "https://music.yandex.ru/album/23955782" },
+                  { name: "Melancholia", url: "https://music.yandex.ru/album/27856013" },
+                ].map((album) => (
+                  <a
+                    key={album.name}
+                    href={album.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 rounded-full bg-zinc-900 border border-white/10 text-zinc-200 text-sm font-medium hover:border-blue-400/40 hover:text-blue-200 transition-colors"
                   >
-                    {album}
-                  </span>
+                    {album.name}
+                  </a>
                 ))}
               </div>
             </div>
