@@ -3,7 +3,7 @@ import { Headphones, Music, Mic2, Award } from "lucide-react";
 
 const achievements = [
   { icon: <Headphones className="w-6 h-6" />, label: "Лет в музыке", value: "5+" },
-  { icon: <Music className="w-6 h-6" />, label: "Выпущено треков", value: "30+" },
+  { icon: <Music className="w-6 h-6" />, label: "Выпущено треков", value: "70+" },
   { icon: <Mic2 className="w-6 h-6" />, label: "Коллабораций", value: "20+" },
   { icon: <Award className="w-6 h-6" />, label: "Прослушиваний", value: "500К+" },
 ];
