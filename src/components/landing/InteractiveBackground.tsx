@@ -1,14 +1,12 @@
 import { useEffect, useRef } from "react";
 
-interface Particle {
+interface RainDrop {
   x: number;
   y: number;
-  size: number;
-  speedX: number;
-  speedY: number;
-  color: string;
-  update: (mouseX: number, mouseY: number, canvasWidth: number, canvasHeight: number) => void;
-  draw: (ctx: CanvasRenderingContext2D) => void;
+  length: number;
+  speed: number;
+  opacity: number;
+  width: number;
 }
 
 const InteractiveBackground = () => {
@@ -17,83 +15,81 @@ const InteractiveBackground = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let animationFrameId: number;
-    let mouseX = 0;
-    let mouseY = 0;
+    const drops: RainDrop[] = [];
+    const dropCount = 180;
 
-    const particles: Particle[] = [];
-    const particleCount = 100;
-
-    const createParticle = (): Particle => {
-      const x = Math.random() * canvas.width;
-      const y = Math.random() * canvas.height;
-      const size = Math.random() * 5 + 1;
-      let speedX = Math.random() * 3 - 1.5;
-      let speedY = Math.random() * 3 - 1.5;
-      const color = `rgba(${Math.floor(Math.random() * 100 + 155)}, ${Math.floor(Math.random() * 100 + 155)}, 255, 0.7)`;
-
-      return {
-        x,
-        y,
-        size,
-        speedX,
-        speedY,
-        color,
-        update(mX: number, mY: number, canvasWidth: number, canvasHeight: number) {
-          this.x += this.speedX + (mX - canvasWidth / 2) * 0.01;
-          this.y += this.speedY + (mY - canvasHeight / 2) * 0.01;
-
-          if (this.x < 0 || this.x > canvasWidth) this.speedX *= -1;
-          if (this.y < 0 || this.y > canvasHeight) this.speedY *= -1;
-        },
-        draw(context: CanvasRenderingContext2D) {
-          context.fillStyle = this.color;
-          context.beginPath();
-          context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          context.fill();
-        },
-      };
-    };
-
-    const init = () => {
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(createParticle());
-      }
-    };
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (const particle of particles) {
-        particle.update(mouseX, mouseY, canvas.width, canvas.height);
-        particle.draw(ctx);
-      }
-      animationFrameId = requestAnimationFrame(animate);
-    };
+    const createDrop = (randomY = false): RainDrop => ({
+      x: Math.random() * canvas.width,
+      y: randomY ? Math.random() * canvas.height : -Math.random() * canvas.height,
+      length: Math.random() * 20 + 10,
+      speed: Math.random() * 4 + 2,
+      opacity: Math.random() * 0.25 + 0.05,
+      width: Math.random() * 0.8 + 0.2,
+    });
 
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
 
-    const handleMouseMove = (event: MouseEvent) => {
-      mouseX = event.clientX;
-      mouseY = event.clientY;
+    handleResize();
+
+    for (let i = 0; i < dropCount; i++) {
+      drops.push(createDrop(true));
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Ночное небо с туманом
+      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      gradient.addColorStop(0, "rgba(5, 8, 20, 1)");
+      gradient.addColorStop(0.4, "rgba(8, 12, 30, 1)");
+      gradient.addColorStop(1, "rgba(3, 5, 12, 1)");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Мягкое синеватое свечение снизу
+      const glow = ctx.createRadialGradient(
+        canvas.width / 2, canvas.height,
+        0,
+        canvas.width / 2, canvas.height,
+        canvas.width * 0.7
+      );
+      glow.addColorStop(0, "rgba(30, 60, 120, 0.12)");
+      glow.addColorStop(1, "rgba(0, 0, 0, 0)");
+      ctx.fillStyle = glow;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Капли дождя
+      for (const drop of drops) {
+        ctx.beginPath();
+        ctx.moveTo(drop.x, drop.y);
+        ctx.lineTo(drop.x - drop.width, drop.y + drop.length);
+        ctx.strokeStyle = `rgba(140, 180, 255, ${drop.opacity})`;
+        ctx.lineWidth = drop.width;
+        ctx.stroke();
+
+        drop.y += drop.speed;
+        drop.x -= drop.speed * 0.15;
+
+        if (drop.y > canvas.height) {
+          Object.assign(drop, createDrop(false));
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
     };
 
-    handleResize();
-    init();
     animate();
-
     window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

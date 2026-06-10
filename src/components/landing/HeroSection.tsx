@@ -14,9 +14,7 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/50 to-black"></div>
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 pointer-events-none"></div>
 
       <div
         className="relative pt-40 pb-16 px-4 flex items-center min-h-screen"
