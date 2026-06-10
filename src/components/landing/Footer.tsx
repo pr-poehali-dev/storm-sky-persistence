@@ -1,4 +1,4 @@
-import { Youtube, Instagram, Music2 } from "lucide-react";
+import Icon from "@/components/ui/icon";
 
 const Footer = () => {
   return (
@@ -8,27 +8,24 @@ const Footer = () => {
           <p className="text-zinc-400 mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Три дня дождя. Все права защищены.
           </p>
-          <div className="flex space-x-4">
+          <div className="flex space-x-5">
             <a
-              href="#"
+              href="https://vk.ru/threedaysrain"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-zinc-400 hover:text-white transition-colors"
-              aria-label="YouTube"
+              aria-label="ВКонтакте"
             >
-              <Youtube />
+              <Icon name="Users" size={22} />
             </a>
             <a
-              href="#"
+              href="https://t.me/everydayrain"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-zinc-400 hover:text-white transition-colors"
-              aria-label="Instagram"
+              aria-label="Telegram"
             >
-              <Instagram />
-            </a>
-            <a
-              href="#"
-              className="text-zinc-400 hover:text-white transition-colors"
-              aria-label="BeatStars"
-            >
-              <Music2 />
+              <Icon name="Send" size={22} />
             </a>
           </div>
         </div>

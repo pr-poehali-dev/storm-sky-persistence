@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import Icon from "@/components/ui/icon";
 import { Menu, X } from "lucide-react";
 
 const Header = () => {
@@ -74,15 +75,26 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <Button
-          variant="outline"
-          className="hidden md:block border-white/20 text-white hover:bg-white/10"
-          asChild
-        >
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            Слушать
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="https://vk.ru/threedaysrain"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-400 hover:text-white transition-colors"
+            aria-label="ВКонтакте"
+          >
+            <Icon name="Users" size={20} />
           </a>
-        </Button>
+          <a
+            href="https://t.me/everydayrain"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-400 hover:text-white transition-colors"
+            aria-label="Telegram"
+          >
+            <Icon name="Send" size={20} />
+          </a>
+        </div>
       </div>
     </header>
   );
