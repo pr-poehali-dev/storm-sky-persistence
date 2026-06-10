@@ -69,11 +69,24 @@ const AboutSection = () => {
               Каждый трек — это маленькое кино без слов: серые городские пейзажи, ночные дороги и
               то ощущение, когда за окном льёт дождь, а ты наедине с собой.
             </p>
-            <p className="text-lg mb-8 text-zinc-300">
+            <p className="text-lg mb-6 text-zinc-300">
               Вдохновение приходит из повседневных деталей, которые обычно остаются незамеченными —
               звук капель по стеклу, шум города вдали, рассветный свет после долгой ночи. Музыка
               для тех, кто умеет чувствовать.
             </p>
+            <div className="mb-8">
+              <p className="text-sm text-zinc-500 uppercase tracking-widest mb-3">Популярные альбомы</p>
+              <div className="flex flex-wrap gap-2">
+                {["Висхолдинг", "Байполар", "Melancholia"].map((album) => (
+                  <span
+                    key={album}
+                    className="px-4 py-2 rounded-full bg-zinc-900 border border-white/10 text-zinc-200 text-sm font-medium hover:border-blue-400/40 hover:text-blue-200 transition-colors cursor-default"
+                  >
+                    {album}
+                  </span>
+                ))}
+              </div>
+            </div>
             <div className="grid grid-cols-2 gap-6">
               {achievements.map((achievement, index) => (
                 <div
