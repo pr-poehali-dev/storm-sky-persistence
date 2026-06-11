@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { Headphones, Music, Mic2, Award } from "lucide-react";
+import RainEffect from "./RainEffect";
 
 const achievements = [
   { icon: <Headphones className="w-6 h-6" />, label: "Лет в музыке", value: "5+" },
@@ -45,32 +46,7 @@ const AboutSection = () => {
 
   return (
     <section ref={ref} id="about" className="py-20 relative overflow-hidden">
-      {/* Капли дождя */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {Array.from({ length: 40 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute top-0 w-px rounded-full bg-gradient-to-b from-transparent via-blue-300/30 to-transparent"
-            style={{
-              left: `${Math.random() * 100}%`,
-              height: `${40 + Math.random() * 60}px`,
-              animationName: "rain",
-              animationDuration: `${0.8 + Math.random() * 1.4}s`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationTimingFunction: "linear",
-              animationIterationCount: "infinite",
-            }}
-          />
-        ))}
-      </div>
-      <style>{`
-        @keyframes rain {
-          0% { transform: translateY(-80px); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 0.6; }
-          100% { transform: translateY(100vh); opacity: 0; }
-        }
-      `}</style>
+      <RainEffect />
       <div className="container mx-auto px-4">
         <div
           className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-700 ${

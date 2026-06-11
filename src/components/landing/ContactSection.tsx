@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2, Send, CheckCircle } from "lucide-react";
+import RainEffect from "./RainEffect";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -54,6 +55,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" ref={ref} className="py-20 bg-zinc-900 relative overflow-hidden">
+      <RainEffect />
       <div
         className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"
         style={{ backgroundPosition: "0 0, 0 0" }}

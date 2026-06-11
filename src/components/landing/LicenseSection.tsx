@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Check, X, Crown, Zap, Star, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import RainEffect from "./RainEffect";
 
 interface LicenseOption {
   name: string;
@@ -89,6 +90,7 @@ const LicenseSection = () => {
 
   return (
     <section ref={ref} id="licenses" className="py-20 relative overflow-hidden">
+      <RainEffect />
       <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900/20 to-black"></div>
 
       <div className="container mx-auto px-4 relative">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, Disc3, Music2, AudioWaveform } from "lucide-react";
+import RainEffect from "./RainEffect";
 
 const HeroSection = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -14,6 +15,7 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen relative overflow-hidden">
+      <RainEffect />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 pointer-events-none"></div>
 
       <div

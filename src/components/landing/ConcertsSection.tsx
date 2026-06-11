@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
+import RainEffect from "./RainEffect";
 
 const concerts = [
   {
@@ -61,6 +62,7 @@ const ConcertsSection = () => {
 
   return (
     <section ref={ref} id="concerts" className="py-20 relative overflow-hidden">
+      <RainEffect />
       <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-blue-950/5 to-black/0 pointer-events-none" />
       <div className="container mx-auto px-4 relative">
         <div
