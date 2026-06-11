@@ -30,12 +30,13 @@ const HeroSection = () => {
               <style>{`@keyframes shimmer-red { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }`}</style>
             </h1>
             <div className="mb-8 max-w-3xl mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
-              <p className="text-2xl md:text-3xl font-light text-white/90 mb-3 tracking-wide">
+              <p className="text-2xl md:text-3xl font-light mb-3 tracking-wide bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, #fff 0%, #c084fc 30%, #a855f7 50%, #7c3aed 70%, #fff 100%)", backgroundSize: "200% auto", animation: "shimmer-purple 3s linear infinite" }}>
                 Музыка, которая спасёт тебя.
               </p>
-              <p className="text-base md:text-lg font-light text-zinc-400 tracking-wide">
+              <p className="text-base md:text-lg font-light tracking-wide bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, #a1a1aa 0%, #c084fc 30%, #a855f7 50%, #7c3aed 70%, #a1a1aa 100%)", backgroundSize: "200% auto", animation: "shimmer-purple 3s linear infinite" }}>
                 «Вайбовые треки на стыке электронного и живого звука — для тех, кто чувствует больше, чем слышит.»
               </p>
+              <style>{`@keyframes shimmer-purple { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }`}</style>
             </div>
             <div className="relative inline-block">
               <Button
