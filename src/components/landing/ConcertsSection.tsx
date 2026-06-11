@@ -85,10 +85,12 @@ const ConcertsSection = () => {
             return (
               <div
                 key={index}
-                className={`transition-all duration-500 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-                }`}
-                style={{ transitionDelay: `${index * 80}ms` }}
+                className="transition-all duration-600 ease-out"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? "translateX(0)" : "translateX(-50px)",
+                  transitionDelay: `${index * 120}ms`,
+                }}
               >
                 <div
                   className={`flex items-center gap-6 p-5 rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm transition-all duration-300 ${

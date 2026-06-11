@@ -83,13 +83,18 @@ const AboutSection = () => {
                   { name: "Висхолдинг", url: "https://music.yandex.ru/album/36336671" },
                   { name: "Байполар", url: "https://music.yandex.ru/album/23955782" },
                   { name: "Melancholia", url: "https://music.yandex.ru/album/27856013" },
-                ].map((album) => (
+                ].map((album, i) => (
                   <a
                     key={album.name}
                     href={album.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 rounded-full bg-zinc-900 border border-white/10 text-zinc-200 text-sm font-medium hover:border-blue-400/40 hover:text-blue-200 transition-colors"
+                    className="px-4 py-2 rounded-full bg-zinc-900 border border-white/10 text-zinc-200 text-sm font-medium hover:border-blue-400/40 hover:text-blue-200 transition-all duration-500"
+                    style={{
+                      opacity: isVisible ? 1 : 0,
+                      transform: isVisible ? "translateY(0)" : "translateY(20px)",
+                      transitionDelay: `${i * 100}ms`,
+                    }}
                   >
                     {album.name}
                   </a>
@@ -100,10 +105,12 @@ const AboutSection = () => {
               {achievements.map((achievement, index) => (
                 <div
                   key={achievement.label}
-                  className={`bg-zinc-900/50 rounded-lg p-4 border border-white/10 transition-all duration-500 ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-                  }`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
+                  className="bg-zinc-900/50 rounded-lg p-4 border border-white/10 transition-all duration-700 ease-out"
+                  style={{
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? "translateY(0) scale(1)" : "translateY(40px) scale(0.95)",
+                    transitionDelay: `${200 + index * 120}ms`,
+                  }}
                 >
                   <div className="flex items-center mb-2">
                     <div className="mr-2 text-white">{achievement.icon}</div>

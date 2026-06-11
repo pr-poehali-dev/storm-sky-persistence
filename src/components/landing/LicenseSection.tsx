@@ -110,10 +110,12 @@ const LicenseSection = () => {
           {licenseOptions.map((option, index) => (
             <div
               key={option.name}
-              className={`transition-all duration-500 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="transition-all duration-700 ease-out"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0) scale(1)" : "translateY(60px) scale(0.95)",
+                transitionDelay: `${index * 150}ms`,
+              }}
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
             >
