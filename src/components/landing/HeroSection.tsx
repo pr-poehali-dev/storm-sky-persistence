@@ -24,9 +24,10 @@ const HeroSection = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h1 className="text-6xl md:text-9xl mb-6 tracking-wide relative" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-zinc-500">
+              <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, #fff 0%, #ff4444 30%, #ff0000 50%, #cc0000 70%, #fff 100%)", backgroundSize: "200% auto", animation: "shimmer-red 3s linear infinite" }}>
                 Три дня дождя
               </span>
+              <style>{`@keyframes shimmer-red { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }`}</style>
             </h1>
             <div className="mb-8 max-w-3xl mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
               <p className="text-2xl md:text-3xl font-light text-white/90 mb-3 tracking-wide">
