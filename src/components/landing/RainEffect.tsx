@@ -8,6 +8,15 @@ const drops = Array.from({ length: 40 }, (_, i) => ({
 
 const RainEffect = () => (
   <>
+    {/* Размытое фото артиста на фоне */}
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <img
+        src="https://cdn.poehali.dev/projects/cba59d06-69fb-42f9-89e0-926360f01706/bucket/e01ead0c-ac01-42a7-ae90-123a39bc4430.png"
+        alt=""
+        className="w-full h-full object-cover object-top"
+        style={{ filter: "blur(32px) brightness(0.18) saturate(0.6)", transform: "scale(1.1)" }}
+      />
+    </div>
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       {drops.map((d) => (
         <div
